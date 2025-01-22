@@ -33,7 +33,7 @@ else
 fi
 
 # Create new user named 'intern_user'
-if ! id "intern_user" &>/dev/null; then
+if ! id "intern_user" ; then
   useradd -m intern_user
   echo "intern_user:password123" | chpasswd
   echo "User 'intern_user' created."
