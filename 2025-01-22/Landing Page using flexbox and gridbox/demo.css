@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;  
+  }
+  /* header section */
+  header {
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem 7rem;
+  }
+  /* for title */
+  #title{
+    padding:0 430px;
+  }
+  /* For Home,gallery,contact section */
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 40px; 
+    padding-right: 650px;
+  }
+
+  nav li {
+    display: inline;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: color 0.3s;
+    padding:10px;
+    margin-left: 10px;
+    
+  }
+
+  nav a:hover {
+    color: cyan;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 0 7rem;
+    width: 50%;
+    margin:2rem auto;
+    transform: translateX(-10%);
+  }
+  /* for new badge */
+  #new-badge {
+    position: absolute;
+    top: -1rem;
+    left: 60%;
+    background-color: red;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  #service {
+    background-color: #edf2f7;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+    /* For card section */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+
+  /* for side content section */
+  aside {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1.9rem;
+    position: sticky;
+    top: 1rem;
+    width: 300px;
+    height: 200px;
+    transform: translateX(10%);
+  }
+
+  /* for button in content */
+  .btn {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .btn:hover {
+    background-color: cyan;
+  }
+
+   /* footer section  */
+  footer {
+    display: flex;
+    background-color: #2c3e50;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 27rem;
+    font-size: 1.2em;
+    
+  }
+
+  /* for 1st <p> content */
+  footer p:nth-child(1){
+    margin:  0;
+  }
+
+   /* for 2nd<p> content */ 
+  footer p:nth-child(2){
+    padding-right: 200px;
+  }
+ 
