@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application for Permission to Date My Daughter</title>
+    <link rel="stylesheet" href="formvalJson.css">
+    
+  </head>
+  <body>
+    <script src="formValJson.js"></script>
+    <div id="container">
+      <form name="Form">
+        <h1>Application for Permission to Date My Daughter</h1>
+        <p>
+          <b>Note:</b> Form is to be completed at least 21 days prior to date
+        </p>
+
+        <fieldset>
+          <legend>Personal Details</legend>
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter name here"
+            onchange="validateName()"
+            required
+          />
+          <span id="nameError" class="error"></span>
+
+          <label for="address">Address:</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Enter address here"
+            onchange="validateAddress()"
+            required
+          />
+          <span id="addressError" class="error"></span>
+
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter email here"
+            onchange="validateEmail()"
+          />
+          <span id="emailError" class="error"></span>
+
+          <label for="phone">Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter 10-digit number"
+            onchange="validatePhone()"
+          />
+          <span id="phoneError" class="error"></span>
+
+          <label for="iq">IQ:</label>
+          <input
+            type="number"
+            id="iq"
+            name="iq"
+            min="0"
+            placeholder="Enter IQ here"
+            onchange="validateIQ()"
+          />
+          <span id="iqError" class="error"></span>
+
+          <label for="gender">Gender:</label>
+          <input type="radio" id="male" name="gender" value="male" /> Male<br />
+          <input type="radio" id="female" name="gender" value="female" />
+          Female<br />
+          <input type="radio" id="other" name="gender" value="other" />
+          Other<br />
+
+          <label for="date">Date of proposed outing:</label>
+          <input type="date" id="date" name="date" onchange="validateDate()" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Check All That Apply</legend>
+          <input type="checkbox" id="ch1" /> I have tattoos and/or piercings<br />
+          <input type="checkbox" id="ch2" /> I am more than 2 years older than
+          your daughter<br />
+          <input type="checkbox" id="ch3" /> I own a panel van or V8 ute<br />
+          <input type="checkbox" id="ch4" checked /> I work full-time<br />
+          <input type="checkbox" id="ch5" checked /> My parents are rich<br />
+          <input type="checkbox" id="ch6" checked /> The date is in a well-lit
+          public location<br />
+        </fieldset>
+
+        <fieldset>
+          <label for="politics">Political Persuasion:</label>
+          <select id="dropdown" name="politics">
+            <option value="left">Left Wing</option>
+            <option value="right">Right Wing</option>
+            <option value="conservative">Cons/* Slightly warmer background color */ervative</option>
+            <option value="nazi">Nazi</option>
+          </select>
+
+          <label for="education">Education Level Completed:</label>
+          <select id="dropdown2" name="education">
+            <option value="university">University</option>
+            <option value="college">College</option>
+            <option value="secondary">High School</option>
+            <option value="none">None</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Essay Section</legend>
+          <label for="essay">Explain why you want to date my daughter:</label>
+          <textarea
+            id="essay"
+            name="essay"
+            rows="4"
+            cols="50"
+            placeholder="Enter Text Here"
+            onchange="validateEssay()"
+            required
+          ></textarea>
+          <span id="essayError" class="error"></span>
+
+          <label for="references"
+            >Upload contact details for 2 references:</label
+          >
+          <textarea
+            id="references"
+            name="references"
+            rows="4"
+            cols="50"
+            placeholder="Enter Text Here"
+          ></textarea>
+
+          <p>
+            Upload Police Clearance Certificate, Bank Statement, and Medical
+            Certificates here:
+          </p>
+          <input type="file" id="files" name="files" multiple />
+        </fieldset>
+
+        <button type="submit" onclick="validate(event)">
+          Send your application
+        </button>
+      </form>
+      <div id="output"></div>
+    </div>
+</body>
+</html>
