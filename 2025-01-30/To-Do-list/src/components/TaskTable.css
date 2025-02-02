@@ -1,0 +1,58 @@
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+  
+  .task-table th,
+  .task-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .task-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .task-table tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .task-table td:last-child {
+    text-align: center;
+  }
+  
+  .task-table button {
+    padding: 6px 12px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .task-table button.edit-btn {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .task-table button.delete-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .task-table button.edit-btn:hover {
+    background-color: #1976d2;
+  }
+  
+  .task-table button.delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
