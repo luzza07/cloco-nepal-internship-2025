@@ -1,0 +1,88 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "name": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "price": 10.99
+    },
+    {
+      "id": "2",
+      "name": "1984",
+      "author": "George Orwell",
+      "price": 8.99
+    },
+    {
+      "id": "3",
+      "name": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "price": 7.99
+    },
+    {
+      "id": "4",
+      "name": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "price": 9.99
+    },
+    {
+      "id": "5",
+      "name": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "price": 11.99
+    },
+    {
+      "id": "6",
+      "name": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "price": 12.99
+    },
+    {
+      "id": "7",
+      "name": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "price": 9.49
+    },
+    {
+      "id": "8",
+      "name": "Mob",
+      "author": "Herman Melville",
+      "price": 14.99
+    },
+    {
+      "id": "9",
+      "name": "War and Peace",
+      "author": "Leo Tolstoy",
+      "price": 19.99
+    },
+    {
+      "id": "ef03",
+      "name": "asd",
+      "author": "dsfadsfadf",
+      "price": "12"
+    },
+    {
+      "id": "81c1",
+      "name": "nic",
+      "author": "saflklnhakdfj",
+      "price": "4566549884"
+    },
+    {
+      "id": "21ed",
+      "name": "asd",
+      "author": "mc",
+      "price": "zxc"
+    },
+    {
+      "id": "aa5c",
+      "name": "adsf",
+      "author": "lmjlkla",
+      "price": "56"
+    },
+    {
+      "id": "5fbb",
+      "name": "asd",
+      "author": "asd",
+      "price": "asd"
+    }
+  ]
+}
