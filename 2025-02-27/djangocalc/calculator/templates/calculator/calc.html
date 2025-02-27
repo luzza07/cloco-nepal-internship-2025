@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .calculator {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(255, 255, 255, 0.4);
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input, select, button {
+            width: 100%;
+            margin: 12px 0;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input, select {
+            border: 2px solid #ccc;
+            background: #f8f8f8;
+            color: #333;
+            box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input:focus, select:focus {
+            border-color: #1e3c72;
+            box-shadow: 0 0 10px rgba(30, 60, 114, 0.4);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        button {
+            background: #ff5722;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #e64a19;
+            transform: scale(1.05);
+            box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="calculator">
+        <h1>Modern Calculator</h1>
+        <form action="{% url 'calculate' %}" method="POST">
+            {% csrf_token %}
+            <input type="number" name="num1" id="num1" placeholder="Enter first number" required>
+            <input type="number" name="num2" id="num2" placeholder="Enter second number" required>
+            <select name="operator" id="operator" required>
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
+            </select>
+            
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result is not None %}
+            <h2>The result is: {{ result }}</h2>
+        {% endif %}
+    </section>
+</body>
+</html>
