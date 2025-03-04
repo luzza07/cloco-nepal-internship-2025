@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}ToDo List{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    
+    main {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 50%;
+        margin-top: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        background: #fff;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .task-info {
+        flex-grow: 1;
+    }
+
+    .task-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .task-description {
+        color: #555;
+    }
+
+    .task-actions {
+        display: flex;
+    }
+
+    .task-actions a {
+        text-decoration: none;
+        background: #007bff;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-left: 5px;
+    }
+
+    .task-actions a:hover {
+        background: #0056b3;
+    }
+
+    .no-tasks {
+        text-align: center;
+        color: #888;
+        font-style: italic;
+    }
+</style>
+
+<h2>ToDo List</h2>
+<ul>
+    {% for todo in todos %}
+    <li>
+        <div class="task-info">
+            <span class="task-title">{{ todo.title }}</span><br>
+            
+        </div>
+        <div class="task-actions">
+            <a href="{% url 'todo_detail' todo.pk %}">View</a>
+            <a href="{% url 'todo_update' todo.pk %}">Edit</a>
+            <a href="{% url 'todo_delete' todo.pk %}">Delete</a>
+        </div>
+    </li>
+    {% empty %}
+    <li class="no-tasks">No tasks available.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
