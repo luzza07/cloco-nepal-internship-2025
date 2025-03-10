@@ -2,7 +2,7 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableFooter,
+  
   TableHead,
   TableHeader,
   TableRow,
@@ -23,10 +23,13 @@ import {
 } from "@/components/ui/alert-dialog";
 
 interface Book {
-  id: number; 
-  name: string;
+  id: number;
+  title: string;
   author: string;
+  category: string;
+  publisher: string;
   price: string;
+  stock: number;
 }
 
 export default function TableComp() {
@@ -41,7 +44,7 @@ export default function TableComp() {
 
   async function fetchBooks() {
     try {
-      const response = await fetch("http://localhost:4000/books");
+      const response = await fetch("http://127.0.0.1:8000/api/books/");
       const data: Book[] = await response.json();
       setBooks(data);
       setTotalBooks(data.length);
@@ -54,13 +57,16 @@ export default function TableComp() {
     if (!deleteId) return;
 
     try {
-      const response = await fetch(`http://localhost:4000/books/${deleteId}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `http://127.0.0.1:8000/api/books/${deleteId}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (response.ok) {
-        setBooks(prev => prev.filter(book => book.id !== deleteId));
-        setTotalBooks(prev => prev - 1);
+        setBooks((prev) => prev.filter((book) => book.id !== deleteId));
+        setTotalBooks((prev) => prev - 1);
       }
     } catch (error) {
       console.error("Error deleting book:", error);
@@ -74,14 +80,16 @@ export default function TableComp() {
       <h1 className="flex justify-center font-bold text-4xl mb-4">
         Total Books: {totalBooks}
       </h1>
-
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Name</TableHead>
+            <TableHead>Title</TableHead> {/* Changed from `Name` to `Title` */}
             <TableHead>Author</TableHead>
+            <TableHead>Category</TableHead>
+            <TableHead>Publisher</TableHead>
             <TableHead className="text-right">Price</TableHead>
+            <TableHead className="text-right">Stock</TableHead>
             <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -89,9 +97,13 @@ export default function TableComp() {
           {books.map((book) => (
             <TableRow key={book.id}>
               <TableCell className="font-medium">{book.id}</TableCell>
-              <TableCell>{book.name}</TableCell>
+              <TableCell>{book.title}</TableCell>{" "}
+              {/* Changed from `name` to `title` */}
               <TableCell>{book.author}</TableCell>
+              <TableCell>{book.category}</TableCell>
+              <TableCell>{book.publisher}</TableCell>
               <TableCell className="text-right">${book.price}</TableCell>
+              <TableCell className="text-right">{book.stock}</TableCell>
               <TableCell className="text-right space-x-2">
                 <Button
                   size="sm"
@@ -100,7 +112,6 @@ export default function TableComp() {
                 >
                   Edit
                 </Button>
-                
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
                     <Button
@@ -115,7 +126,8 @@ export default function TableComp() {
                     <AlertDialogHeader>
                       <AlertDialogTitle>Confirm Deletion</AlertDialogTitle>
                       <AlertDialogDescription>
-                        Are you sure you want to delete this book? This action cannot be undone.
+                        Are you sure you want to delete this book? This action
+                        cannot be undone.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
@@ -133,13 +145,6 @@ export default function TableComp() {
             </TableRow>
           ))}
         </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TableCell colSpan={5} className="text-center">
-              Showing {books.length} of {totalBooks} books
-            </TableCell>
-          </TableRow>
-        </TableFooter>
       </Table>
 
       <div className="flex justify-center my-4">
@@ -148,7 +153,6 @@ export default function TableComp() {
           onClick={() => router.push("/books/add")}
         >
           Add Book
-    
         </Button>
       </div>
     </>
