@@ -2,7 +2,6 @@ import {
   Table,
   TableBody,
   TableCell,
-  
   TableHead,
   TableHeader,
   TableRow,
@@ -67,6 +66,8 @@ export default function TableComp() {
       if (response.ok) {
         setBooks((prev) => prev.filter((book) => book.id !== deleteId));
         setTotalBooks((prev) => prev - 1);
+      } else {
+        console.error("Failed to delete book");
       }
     } catch (error) {
       console.error("Error deleting book:", error);
@@ -84,7 +85,7 @@ export default function TableComp() {
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Title</TableHead> {/* Changed from `Name` to `Title` */}
+            <TableHead>Title</TableHead>
             <TableHead>Author</TableHead>
             <TableHead>Category</TableHead>
             <TableHead>Publisher</TableHead>
@@ -97,14 +98,14 @@ export default function TableComp() {
           {books.map((book) => (
             <TableRow key={book.id}>
               <TableCell className="font-medium">{book.id}</TableCell>
-              <TableCell>{book.title}</TableCell>{" "}
-              {/* Changed from `name` to `title` */}
+              <TableCell>{book.title}</TableCell>
               <TableCell>{book.author}</TableCell>
               <TableCell>{book.category}</TableCell>
               <TableCell>{book.publisher}</TableCell>
               <TableCell className="text-right">${book.price}</TableCell>
               <TableCell className="text-right">{book.stock}</TableCell>
               <TableCell className="text-right space-x-2">
+                {/* Edit Button */}
                 <Button
                   size="sm"
                   className="bg-blue-500 hover:bg-blue-700"
@@ -112,6 +113,8 @@ export default function TableComp() {
                 >
                   Edit
                 </Button>
+
+                {/* Delete Confirmation */}
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
                     <Button
@@ -126,8 +129,8 @@ export default function TableComp() {
                     <AlertDialogHeader>
                       <AlertDialogTitle>Confirm Deletion</AlertDialogTitle>
                       <AlertDialogDescription>
-                        Are you sure you want to delete this book? This action
-                        cannot be undone.
+                        Are you sure you want to delete <b>{book.title}</b>?
+                        This action cannot be undone.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
