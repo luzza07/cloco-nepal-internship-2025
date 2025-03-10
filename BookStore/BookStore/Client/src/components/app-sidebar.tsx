@@ -27,64 +27,53 @@ const data = {
           url: "/dashboard",
         },
         {
-          title: "Project Structure",
-          url: "#",
+          title: "Home",
+          url: "/dashboard",
         },
       ],
     },
     {
-      title: "User-Focused Features",
+      title: " Features",
       url: "#",
       items: [
         {
-          title: "Account",
+          title: "Books",
+          url: "/books",
+        },
+        {
+          title: "Authors",
+          url: "/authors/",
+          isActive: true,
+        },
+        {
+          title: "Categories",
+          url: "#",
+        },
+        {
+          title: "Publishers",
+          url: "#",
+        },
+        {
+          title: "Customers",
+          url: "#",
+        },
+        {
+          title: "Orders",
+          url: "#",
+        },
+        {
+          title: "Reviews",
+          url: "#",
+        },
+        {
+          title: "Payments",
           url: "#",
         },
         {
           title: "Cart",
           url: "#",
-          isActive: true,
         },
-        {
-          title: "Deals and Discounts",
-          url: "#",
-        },
-        {
-          title: "Featured Authors",
-          url: "#",
-        },
-        {
-          title: "Best Sellers",
-          url: "#",
-        },
-        {
-          title: "About us",
-          url: "#",
-        },
-        {
-          title: "Blog/News",
-          url: "#",
-        },
-        {
-          title: "Help & Support",
-          url: "#",
-        },
-        {
-          title: "Events Calender",
-          url: "#",
-        },
-        {
-          title: "Language/Currency Switcher",
-          url: "#",
-        },
-        {
-          title: "Accessibility Tools",
-          url: "#",
-        },
-        {
-          title: "Social Media Links",
-          url: "#",
-        },
+        
       ],
     },
     
