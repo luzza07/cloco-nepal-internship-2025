@@ -57,7 +57,7 @@ export default function TableComp() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/books/${deleteId}`,
+        `http://127.0.0.1:8000/api/books/${deleteId}/`,
         {
           method: "DELETE",
         }

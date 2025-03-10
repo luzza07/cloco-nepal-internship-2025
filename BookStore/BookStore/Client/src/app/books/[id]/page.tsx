@@ -21,9 +21,9 @@ export default function EditBook() {
     publisher_id: "",
   });
 
-  const [authors, setAuthors] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [publishers, setPublishers] = useState([]);
+  const [authors, setAuthors] = useState<{ id: number; name: string }[]>([]);
+  const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
+  const [publishers, setPublishers] = useState<{ id: number; name: string }[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -48,12 +48,12 @@ export default function EditBook() {
         const categoriesData = await categoriesRes.json();
         const publishersData = await publishersRes.json();
 
-        const authorObj = authorsData.find((a) => a.name === bookData.author);
+        const authorObj = authorsData.find((a: { id: number; name: string }) => a.name === bookData.author);
         const categoryObj = categoriesData.find(
-          (c) => c.name === bookData.category
+          (c: { name: string }) => c.name === bookData.category
         );
         const publisherObj = publishersData.find(
-          (p) => p.name === bookData.publisher
+          (p: { name: string }) => p.name === bookData.publisher
         );
 
         setBook({
@@ -112,14 +112,19 @@ export default function EditBook() {
   }
 
   // Helper function to update book data
-  const updateBook = (field, value) => {
+  const updateBook = (field: string, value: string | number) => {
     setBook({
       ...book,
       [field]: value,
     });
   };
 
-  const handleSelectChange = (field, idField, list, value) => {
+  const handleSelectChange = (
+    field: string,
+    idField: string,
+    list: { id: number; name: string }[],
+    value: string
+  ) => {
     const selected = list.find((item) => item.id.toString() === value);
     setBook({
       ...book,
@@ -139,6 +144,7 @@ export default function EditBook() {
         <div>
           <label className="block text-sm font-medium mb-1">Title</label>
           <input
+          placeholder="Book Title"
             type="text"
             value={book.title}
             onChange={(e) => updateBook("title", e.target.value)}
@@ -150,6 +156,7 @@ export default function EditBook() {
         <div>
           <label className="block text-sm font-medium mb-1">Author</label>
           <select
+          title="Author"
             value={book.author_id}
             onChange={(e) =>
               handleSelectChange("author", "author_id", authors, e.target.value)
@@ -172,6 +179,7 @@ export default function EditBook() {
         <div>
           <label className="block text-sm font-medium mb-1">Category</label>
           <select
+          title="Category"
             value={book.category_id}
             onChange={(e) =>
               handleSelectChange(
@@ -199,6 +207,7 @@ export default function EditBook() {
         <div>
           <label className="block text-sm font-medium mb-1">Publisher</label>
           <select
+          title="Publisher"
             value={book.publisher_id}
             onChange={(e) =>
               handleSelectChange(
@@ -226,6 +235,7 @@ export default function EditBook() {
         <div>
           <label className="block text-sm font-medium mb-1">Price</label>
           <input
+          placeholder="Book Price"
             type="number"
             value={book.price}
             onChange={(e) => updateBook("price", e.target.value)}
@@ -238,6 +248,7 @@ export default function EditBook() {
         <div>
           <label className="block text-sm font-medium mb-1">Stock</label>
           <input
+          placeholder="Book Stock"
             type="number"
             value={book.stock}
             onChange={(e) => updateBook("stock", Number(e.target.value))}
@@ -251,6 +262,7 @@ export default function EditBook() {
             Published Date
           </label>
           <input
+          placeholder="Published Date"
             type="date"
             value={book.published_date}
             onChange={(e) => updateBook("published_date", e.target.value)}

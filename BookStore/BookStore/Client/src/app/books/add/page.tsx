@@ -23,8 +23,12 @@ export default function AddBook() {
     async function fetchData() {
       try {
         const authorsRes = await fetch("http://127.0.0.1:8000/api/authors/");
-        const categoriesRes = await fetch("http://127.0.0.1:8000/api/categories/");
-        const publishersRes = await fetch("http://127.0.0.1:8000/api/publishers/");
+        const categoriesRes = await fetch(
+          "http://127.0.0.1:8000/api/categories/"
+        );
+        const publishersRes = await fetch(
+          "http://127.0.0.1:8000/api/publishers/"
+        );
 
         const authorsData = await authorsRes.json();
         const categoriesData = await categoriesRes.json();
@@ -68,12 +72,16 @@ export default function AddBook() {
       <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
         {/* Title */}
         <div className="col-span-2">
-          <label className="block text-gray-700 font-semibold mb-1">Title</label>
+          <label className="block text-gray-700 font-semibold mb-1">
+            Title
+          </label>
           <input
             type="text"
             placeholder="Book Title"
             value={formData.title}
-            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, title: e.target.value })
+            }
             className="border p-2 w-full rounded"
             required
           />
@@ -81,10 +89,15 @@ export default function AddBook() {
 
         {/* Author Dropdown */}
         <div>
-          <label className="block text-gray-700 font-semibold mb-1">Author</label>
+          <label className="block text-gray-700 font-semibold mb-1">
+            Author
+          </label>
           <select
+            title="Author"
             value={formData.author_id}
-            onChange={(e) => setFormData({ ...formData, author_id: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, author_id: e.target.value })
+            }
             className="border p-2 w-full rounded"
             required
           >
@@ -99,10 +112,15 @@ export default function AddBook() {
 
         {/* Category Dropdown */}
         <div>
-          <label className="block text-gray-700 font-semibold mb-1">Category</label>
+          <label className="block text-gray-700 font-semibold mb-1">
+            Category
+          </label>
           <select
+            title="Category"
             value={formData.category_id}
-            onChange={(e) => setFormData({ ...formData, category_id: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, category_id: e.target.value })
+            }
             className="border p-2 w-full rounded"
             required
           >
@@ -117,10 +135,15 @@ export default function AddBook() {
 
         {/* Publisher Dropdown */}
         <div>
-          <label className="block text-gray-700 font-semibold mb-1">Publisher</label>
+          <label className="block text-gray-700 font-semibold mb-1">
+            Publisher
+          </label>
           <select
+            title="Publisher"
             value={formData.publisher_id}
-            onChange={(e) => setFormData({ ...formData, publisher_id: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, publisher_id: e.target.value })
+            }
             className="border p-2 w-full rounded"
             required
           >
@@ -135,12 +158,16 @@ export default function AddBook() {
 
         {/* Price */}
         <div>
-          <label className="block text-gray-700 font-semibold mb-1">Price</label>
+          <label className="block text-gray-700 font-semibold mb-1">
+            Price
+          </label>
           <input
             type="number"
             placeholder="Price"
             value={formData.price}
-            onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, price: e.target.value })
+            }
             className="border p-2 w-full rounded"
             required
           />
@@ -148,12 +175,16 @@ export default function AddBook() {
 
         {/* Stock */}
         <div>
-          <label className="block text-gray-700 font-semibold mb-1">Stock</label>
+          <label className="block text-gray-700 font-semibold mb-1">
+            Stock
+          </label>
           <input
             type="number"
             placeholder="Stock"
             value={formData.stock}
-            onChange={(e) => setFormData({ ...formData, stock: Number(e.target.value) })}
+            onChange={(e) =>
+              setFormData({ ...formData, stock: Number(e.target.value) })
+            }
             className="border p-2 w-full rounded"
             required
           />
@@ -161,11 +192,16 @@ export default function AddBook() {
 
         {/* Published Date */}
         <div className="col-span-2">
-          <label className="block text-gray-700 font-semibold mb-1">Published Date</label>
+          <label className="block text-gray-700 font-semibold mb-1">
+            Published Date
+          </label>
           <input
             type="date"
+            placeholder="Published Date"
             value={formData.published_date}
-            onChange={(e) => setFormData({ ...formData, published_date: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, published_date: e.target.value })
+            }
             className="border p-2 w-full rounded"
             required
           />
@@ -173,7 +209,10 @@ export default function AddBook() {
 
         {/* Submit Button */}
         <div className="col-span-2">
-          <button type="submit" className="bg-blue-500 text-white p-2 w-full rounded hover:bg-blue-600">
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-2 w-full rounded hover:bg-blue-600"
+          >
             Add Book
           </button>
         </div>
